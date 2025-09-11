@@ -12,13 +12,17 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '8.0.x'
+          dotnet-version: '8.0.x' # replace with your SDK version
+
       - name: Restore dependencies
-        run: dotnet restore ./YourSolution.sln
+        run: dotnet restore ./ProductCatalog.sln
+
       - name: Build
-        run: dotnet build ./YourSolution.sln --no-restore
+        run: dotnet build ./ProductCatalog.sln --no-restore
+
       - name: Test
-        run: dotnet test ./YourSolution.sln --no-build --verbosity normal
+        run: dotnet test ./ProductCatalog.sln --no-build --verbosity normal
